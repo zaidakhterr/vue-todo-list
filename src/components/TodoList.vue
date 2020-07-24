@@ -2,30 +2,35 @@
   <div>
     <h1>TodoList</h1>
     <ul>
-      <li v-for="item in list" v-bind:key="item.id" v-bind:class="{ completed: item.isCompleted }">{{ item.task }}</li>
+      <TodoItem v-for="item of list" v-bind:key="item.id" v-bind:item="item" />
     </ul>
   </div>
 </template>
 
 <script>
+  import TodoItem from "./TodoItem";
+
   export default {
     name: "TodoList",
+    components: {
+      TodoItem,
+    },
     data: function() {
       return {
         list: [
           {
             id: 1,
-            task: "Install Vue CLI",
+            title: "Install Vue CLI",
             isCompleted: true,
           },
           {
             id: 2,
-            task: "Create Vue Project",
+            title: "Create Vue Project",
             isCompleted: true,
           },
           {
             id: 3,
-            task: "Make TodoList App",
+            title: "Make TodoList App with Vue",
             isCompleted: false,
           },
         ],
@@ -33,9 +38,3 @@
     },
   };
 </script>
-
-<style scoped>
-  .completed {
-    text-decoration: line-through;
-  }
-</style>
