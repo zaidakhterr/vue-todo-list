@@ -2,7 +2,7 @@
   <div>
     <h1>TodoList</h1>
     <ul>
-      <li v-for="item in list" v-bind:key="item.id">{{ item.task }}</li>
+      <li v-for="item in list" v-bind:key="item.id" v-bind:class="{ completed: item.isCompleted }">{{ item.task }}</li>
     </ul>
   </div>
 </template>
@@ -34,4 +34,8 @@
   };
 </script>
 
-<style scoped></style>
+<style scoped>
+  .completed {
+    text-decoration: line-through;
+  }
+</style>
