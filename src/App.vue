@@ -15,7 +15,7 @@
   };
 </script>
 
-<style>
+<style lang="scss">
   *,
   *::before,
   *::after {
@@ -30,5 +30,6 @@
     width: 100%;
     overflow-x: hidden;
     min-height: 100%;
+    background: #f5f5fa;
   }
 </style>

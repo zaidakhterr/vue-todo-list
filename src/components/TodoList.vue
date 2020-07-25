@@ -1,9 +1,9 @@
 <template>
-  <div>
+  <div class="todo-list">
     <h1>TodoList</h1>
-    <ul>
+    <div>
       <TodoItem v-for="item of list" v-bind:key="item.id" v-bind:item="item" />
-    </ul>
+    </div>
   </div>
 </template>
 
@@ -30,7 +30,7 @@
           },
           {
             id: 3,
-            title: "Make TodoList App with Vue",
+            title: "Make Awesome App with Vue",
             isCompleted: false,
           },
         ],
@@ -38,3 +38,21 @@
     },
   };
 </script>
+
+<style lang="scss" scoped>
+  .todo-list {
+    width: 100%;
+    max-width: 500px;
+    padding: 64px 32px;
+    margin: 0 auto;
+
+    h1 {
+      text-align: center;
+      margin-bottom: 16px;
+    }
+
+    div {
+      width: 100%;
+    }
+  }
+</style>
