@@ -1,9 +1,9 @@
 <template>
   <div class="todo-list">
     <h1>TodoList</h1>
-    <div>
+    <transition-group name="list" tag="div">
       <TodoItem v-for="item of list" v-bind:key="item.id" v-bind:item="item" v-on:del-item="deleteItem" />
-    </div>
+    </transition-group>
   </div>
 </template>
 
@@ -48,16 +48,35 @@
   .todo-list {
     width: 100%;
     max-width: 500px;
-    padding: 64px 32px;
-    margin: 0 auto;
+    margin: 64px auto;
 
     h1 {
       text-align: center;
       margin-bottom: 16px;
     }
 
-    div {
+    > div {
       width: 100%;
+      padding: 16px;
     }
+  }
+
+  .list-enter-active,
+  .list-leave-active {
+    transition: all 500ms;
+  }
+
+  .list-enter {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+
+  .list-leave-to {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+
+  .list-leave-active {
+    position: absolute;
   }
 </style>

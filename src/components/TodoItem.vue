@@ -1,5 +1,5 @@
 <template>
-  <div class="todo-item">
+  <div class="item">
     <p v-bind:class="{ 'is-completed': item.isCompleted }" @click="toggleComplete">{{ item.title }}</p>
     <button class="del-btn" @click="deleteItem">&#x2716;</button>
   </div>
@@ -23,8 +23,10 @@
 </script>
 
 <style lang="scss" scoped>
-  .todo-item {
+  .item {
+    transition: all 500ms;
     width: 100%;
+    max-width: calc(500px - 32px);
     border: solid 1px #d9d9d9;
     background-color: #fff;
     border-radius: 3px;
