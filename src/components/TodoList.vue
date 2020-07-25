@@ -4,17 +4,20 @@
     <transition-group name="list" tag="div">
       <TodoItem v-for="item of list" v-bind:key="item.id" v-bind:item="item" v-on:del-item="deleteItem" />
     </transition-group>
+    <AddTodoForm />
   </div>
 </template>
 
 <script>
   import TodoItem from "./TodoItem";
+  import AddTodoForm from "./AddTodoForm";
   import { v4 as uuid } from "uuid";
 
   export default {
     name: "TodoList",
     components: {
       TodoItem,
+      AddTodoForm,
     },
     data() {
       return {
