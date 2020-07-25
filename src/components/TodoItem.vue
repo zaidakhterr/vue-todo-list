@@ -1,7 +1,7 @@
 <template>
   <div class="todo-item">
-    <p v-bind:class="{ 'is-completed': item.isCompleted }" v-on:click="toggleComplete">{{ item.title }}</p>
-    <button class="del-btn" v-bind:disabled="item.isCompleted" v-on:click="$emit('del-item', item.id)">&#x2716;</button>
+    <p v-bind:class="{ 'is-completed': item.isCompleted }" @click="toggleComplete">{{ item.title }}</p>
+    <button class="del-btn" @click="deleteItem">&#x2716;</button>
   </div>
 </template>
 
@@ -14,6 +14,9 @@
     methods: {
       toggleComplete() {
         this.item.isCompleted = !this.item.isCompleted;
+      },
+      deleteItem() {
+        this.$emit("del-item", this.item.id);
       },
     },
   };

@@ -2,7 +2,7 @@
   <div class="todo-list">
     <h1>TodoList</h1>
     <div>
-      <TodoItem v-for="item of list" v-bind:key="item.id" v-bind:item="item" />
+      <TodoItem v-for="item of list" v-bind:key="item.id" v-bind:item="item" v-on:del-item="deleteItem" />
     </div>
   </div>
 </template>
@@ -15,7 +15,7 @@
     components: {
       TodoItem,
     },
-    data: function() {
+    data() {
       return {
         list: [
           {
@@ -35,6 +35,11 @@
           },
         ],
       };
+    },
+    methods: {
+      deleteItem(id) {
+        this.list = this.list.filter((v) => v.id !== id);
+      },
     },
   };
 </script>
