@@ -9,6 +9,7 @@
 
 <script>
   import TodoItem from "./TodoItem";
+  import { v4 as uuid } from "uuid";
 
   export default {
     name: "TodoList",
@@ -19,17 +20,17 @@
       return {
         list: [
           {
-            id: 1,
+            id: uuid(),
             title: "Install Vue CLI",
             isCompleted: true,
           },
           {
-            id: 2,
+            id: uuid(),
             title: "Create Vue Project",
             isCompleted: true,
           },
           {
-            id: 3,
+            id: uuid(),
             title: "Make Awesome App with Vue",
             isCompleted: false,
           },
