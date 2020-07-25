@@ -1,10 +1,10 @@
 <template>
   <div class="todo-list">
     <h1>TodoList</h1>
+    <AddTodoForm v-on:add-item="addItem" />
     <transition-group name="list" tag="div">
       <TodoItem v-for="item of list" v-bind:key="item.id" v-bind:item="item" v-on:del-item="deleteItem" />
     </transition-group>
-    <AddTodoForm />
   </div>
 </template>
 
@@ -44,6 +44,17 @@
       deleteItem(id) {
         this.list = this.list.filter((v) => v.id !== id);
       },
+      addItem(title) {
+        console.log("title", title, title.length);
+        if (title.length !== 0) {
+          const newTodo = {
+            id: uuid(),
+            title,
+            isCompleted: false,
+          };
+          this.list = [...this.list, newTodo];
+        }
+      },
     },
   };
 </script>
@@ -61,7 +72,7 @@
 
     > div {
       width: 100%;
-      padding: 16px;
+      padding: 32px 16px;
     }
   }
 
