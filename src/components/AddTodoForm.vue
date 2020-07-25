@@ -25,7 +25,7 @@
 
 <style lang="scss" scoped>
   form {
-    padding: 0 16px;
+    padding: 16px;
     display: flex;
 
     input {
